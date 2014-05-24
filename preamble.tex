@@ -1,0 +1,186 @@
+\usepackage{fixltx2e} 		% fixes a few things in the LaTeX2e kernel.
+
+\usepackage{algorithm} 		% algorithm environment
+\usepackage{algorithmicx} 	% algorithms
+\usepackage{algpseudocode} 	% algorithm pseudo code
+
+\usepackage{todonotes}		% \todo{Rewrite this answer \ldots}; \listoftodos 
+
+\usepackage{amsmath}		% all things math
+\usepackage{amsfonts}		% \mathcal, \mathbb
+\usepackage{bm} 			% allows bolded greek letters
+\usepackage{mathtools} 		% for \shortintertext; other math helpers
+
+\usepackage{microtype}		% better typography; requres pdflatex. must load after
+							% fonts
+
+\usepackage{graphicx}		% \includegraphics
+\usepackage{wrapfig}
+\usepackage{float} 			% allows H placement, like h! but stronger
+\usepackage{caption}			% \caption
+\usepackage{subcaption}		% replaces subfigure package for \begin{subfigure} env
+
+\usepackage{enumerate}
+\usepackage[ampersand]{easylist} % \begin{easylist}[itemize]; & Main item; && Subitem
+
+\usepackage{hyperref}		% converts references and bibliography urls into 
+							% clickable PDF links
+\usepackage{url}
+
+\usepackage{pdflscape} 		% allows use of the \begin{landscape} environment
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (p)robability with (p)arens
+% (p)robability with (p)arens and (s)uperscript
+% (p)robability with (p)arens (c)onditional
+% (p)robability with (p)arens (c)onditional and (s)uperscript
+\newcommand{\pp}[1]{\mathbb{P}\left( #1 \right)} 
+\newcommand{\pps}[2]{\mathbb{P}^{#1}\left( #2 \right)} 
+\newcommand{\ppc}[2]{\mathbb{P}\left( #1 \, ; \,  #2 \right)} 
+\newcommand{\ppcs}[3]{\mathbb{P}^{#1}\left( #2 \, ; \, #3 \right)} 
+
+% (p)robability with (p)arens (c)onditional of various types
+\newcommand{\ppcdir}[2]{\mathbb{P}^{\mathcal{D}ir}\left( #1 \, ; \, #2 \right)} 
+\newcommand{\ppcdisc}[2]{\mathbb{P}^{\mathcal{D}isc}\left( #1 \, ; \, #2 \right)} 
+\newcommand{\ppccat}[2]{\mathbb{P}^{\mathcal{C}at}\left( #1 \, ; \, #2 \right)} 
+\newcommand{\ppcnorm}[2]{\mathbb{P}^{\mathcal{N}orm}\left( #1 \, ; \, #2 \right)} 
+
+% fancy reals
+\newcommand{\reals}{\mathbb{R}}
+
+% mathcal f with parens for objective function
+\newcommand{\fc}{\mathcal{F}}
+\newcommand{\fcp}[1]{\fc \left( #1 \right)}
+
+% mathcal c with parens for objective function
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\ccp}[1]{\cc \left( #1 \right)}
+
+% mathcal g with parens for gradient 
+\newcommand{\gc}{\mathcal{G}}
+\newcommand{\gck}{\mathcal{G}_k}
+\newcommand{\gcp}[1]{\gc \left( #1 \right)}
+\newcommand{\gckp}[1]{\gck \left( #1 \right)}
+
+% mathcal h with parens for hessian
+\newcommand{\hc}{\mathcal{H}}
+\newcommand{\hcp}[1]{\hc \left( #1 \right)}
+
+% mathcal m with parens for model
+\newcommand{\mc}{\mathcal{M}}
+\newcommand{\mcp}[1]{\mc \left( #1 \right)}
+
+% mathcal m with parens for model
+\newcommand{\nc}{\mathcal{N}}
+\newcommand{\ncp}[1]{\mc \left( #1 \right)}
+
+% mathcal l with parens for learner or loss or likelihood
+\newcommand{\lc}{\mathcal{L}}
+\newcommand{\lcp}[1]{\lc \left( #1 \right)}
+
+% mathcal a with parens for algorithm
+\newcommand{\ac}{\mathcal{A}}
+\newcommand{\acp}[1]{\ac \left( #1 \right)}
+\newcommand{\acpa}[2]{\ac_{#1} \left( #2 \right)}
+
+% mathcal a with parens for decider
+\newcommand{\dc}{\mathcal{D}}
+\newcommand{\dcp}[1]{\dc \left( #1 \right)}
+
+% mathcal a with parens for problem
+\newcommand{\pc}{\mathcal{P}}
+\newcommand{\pcp}[1]{\pc \left( #1 \right)}
+
+% (E)xpected (V)alue
+% (Var)iance
+% (Cov)ariance for one variable
+% (Cov)ariance for multiple variable(s)
+% (S)tandard (e)rror
+\newcommand{\ev}[1]{\mathbb{E}\left[ #1 \right]} 				
+\newcommand{\var}[1]{\mathbb{V}\mathrm{ar}\left[ #1 \right]} 		
+\newcommand{\varhat}[1]{\widehat{\mathbb{V}\mathrm{ar}}\left[ #1 \right]} 	
+\newcommand{\cov}[1]{\mathbb{C}\mathrm{ov}\left[ #1 \right]}
+\newcommand{\covs}[2]{\mathbb{C}\mathrm{ov}\left[ #1, #2 \right]} 	
+\newcommand{\corr}[2]{\mathbb{C}\mathrm{orr}\left[ #1, #2 \right]}
+\newcommand{\se}[1]{\mathbb{S}\mathrm{e}\left[ #1 \right]}
+\newcommand{\bh}{\hat{\beta}}
+
+% (wrap) in (p)arens
+% (wrap) in (b)rackets
+\newcommand{\wrapp}[1]{\left( #1 \right)}
+\newcommand{\wrapb}[1]{\left[ #1 \right]}
+
+% sum for i = 1:n
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\sumiN}{\sum_{i=1}^N}
+
+% The d for (dif)ferentials (not italicized; use in integrals instead of 'd')
+\newcommand{\dif}{\, \mathrm{d}}
+\newcommand{\deriv}[2]{\frac{\dif #1}{\dif #2}}
+\newcommand{\derivpartial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\secondderivpartial}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+% bold symbols
+\newcommand{\lambdab}{\boldsymbol{\lambda}}
+\newcommand{\phib}{\boldsymbol{\phi}}
+\newcommand{\thetab}{\boldsymbol{\theta}}
+\newcommand{\alphab}{\boldsymbol{\alpha}}
+\newcommand{\betab}{\boldsymbol{\beta}}
+\newcommand{\xb}{\mathbf{x}}
+\newcommand{\yb}{\mathbf{y}}
+\newcommand{\wb}{\mathbf{w}}
+\newcommand{\zb}{\mathbf{z}}
+
+%% distributions
+\newcommand{\dir}[1]{\mathcal{D}irichlet\left( #1\right)}
+\newcommand{\norm}[1]{\mathcal{N}ormal\left( #1\right)}
+\newcommand{\mult}[1]{\mathcal{M}ultinomial\left( #1\right)}
+\newcommand{\disc}[1]{\mathcal{D}iscrete\left( #1\right)}
+\newcommand{\cat}[1]{\mathcal{C}ategorical\left( #1\right)}
+
+% beta and inverse beta functions for dirichlet pdfs.  first argument is the argument of the beta function, second argument is the lower limit for the sum and product, third argument is the upper limit for the sum and product
+\newcommand{\betafunc}[3]{\frac{\prod_{#2}^{#3} \Gamma \left( #1 \right)}{\Gamma \left( \sum_{#2}^{#3} #1 \right)}}
+\newcommand{\invbetafunc}[3]{\frac{\Gamma \left( \sum_{#2}^{#3} #1 \right)}{ \prod_{#2}^{#3} \Gamma \left( #1 \right) }}
+
+% for making multiline comments in an align environment
+% from http://tex.stackexchange.com/questions/126605/align-multiline-rhs
+\newcommand{\twoline}[2]{\begin{aligned} &\text{#1} \\& \text{#2} \end{aligned}}
+\newcommand{\threeline}[3]{\begin{aligned} &\text{#1} \\& \text{#2} \\& \text{#3} \end{aligned}}
+
+\newcommand*\expandableInput[1]{\@@input#1 }
+
+% common matrices
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\B}{\mathbf{B}}
+\renewcommand{\C}{\mathbf{C}} % renew because apparently \C was already defined somewhere as something else
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\J}{\mathbf{J}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\sigmat}{\mathbf{\Sigma}}
+\newcommand{\lambdamat}{\mathbf{\Lambda}}
+
+% common vectors
+% renew because apparently \a, \b, and \c were already defined somewhere as something else
+\renewcommand{\a}{\mathbf{a}}
+\renewcommand{\b}{\mathbf{b}}
+\renewcommand{\c}{\mathbf{c}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\DeclareMathOperator{\tr}{Tr}
+\newcommand{\trp}[1]{\tr \wrapp{#1}}
+\newcommand{\trb}[1]{\tr \wrapb{#1}}
+
+
+% * sets the _ to appear below rather than off to the right
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+% 
+\newcommand{\simiid}{ \stackrel{iid}{\sim}}
+
